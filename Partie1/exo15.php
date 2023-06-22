@@ -50,11 +50,21 @@ Class Personne
     {
         $this->_birthdate = $birthdate;
     }
+
+    public function calcAge($birthdate)
+    {
+        $now = new DateTime();
+        $age = $now->diff($birthdate)->y;
+        return $age;
+    }
+
+    public function __toString()
+    {
+        return $this->_name . " " . $this->_first_name . " à " . $this->calcAge($this->_birthdate). " ans";
+    }
 }
 
 $p1 = new Personne("DUPONT","Michel", "1980-02-19");
 $p2 = new Personne("DUCHEMIN","Alice", "1985-01-17");
 
-$now = new DateTime();
-echo $p1->getFirstName() . $p1->getFirstName() . " à " . $now->diff($p1->getBirthdate())->y . " ans</br>";
-echo $p2->getFirstName() . $p2->getFirstName() . " à " . $now->diff($p2->getBirthdate())->y . " ans</br>";
+echo "$p1 </br> $p2";
