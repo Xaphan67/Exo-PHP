@@ -51,16 +51,16 @@ Class Personne
         $this->_birthdate = $birthdate;
     }
 
-    public function calcAge($birthdate)
+    public function calcAge()
     {
         $now = new DateTime();
-        $age = $now->diff($birthdate)->y;
+        $age = $now->diff($this->_birthdate)->y;
         return $age;
     }
 
     public function __toString()
     {
-        return $this->_name . " " . $this->_first_name . " à " . $this->calcAge($this->_birthdate). " ans";
+        return $this->_name . " " . $this->_first_name . " à " . $this->calcAge(). " ans";
     }
 }
 
