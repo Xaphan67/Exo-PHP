@@ -12,7 +12,7 @@ $elements = array("Monsieur","Madame","Mademoiselle");
 function alimenterListeDeroulante($elements)
 {
     //select -> Liste déroulante
-    $result = '<select name="">';
+    $result = '<select name="civilité">';
 
     // Ajoute une option pour chaque élément du tableau
     foreach($elements as $element)

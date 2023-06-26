@@ -21,7 +21,9 @@ function afficherTableHTML($capitales)
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Capitales</th>
+                    <th >Pays</th>
+                    <th >Capitale</th>
+                    <th >Lien wiki</th>
                 </tr>
             </thead>
         <tbody>
