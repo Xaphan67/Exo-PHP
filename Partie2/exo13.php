@@ -147,6 +147,7 @@ Class Voiture
     }
 }
 
+// Déclaration des classes
 $voiture1 = new Voiture("Peugeot","408",5);
 $voiture2 = new Voiture("Citroën","C4",3);
 

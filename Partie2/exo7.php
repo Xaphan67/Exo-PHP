@@ -8,11 +8,14 @@
 
 $elements = array("Choix 1" => false, "Choix 2" => true, "Choix 3" => false);
 
+// Crée une liste de checkboxes à partir d'un tableau passé en paramètres
 function genererCheckbox($elements)
 {
+    // Début de la balise fieldset
     $result = '
     <fieldset>';
 
+    // Parcours le tableau
     foreach($elements as $key => $value)
     {
         $checked = "";
@@ -21,6 +24,8 @@ function genererCheckbox($elements)
             $checked = "checked";
         }
 
+        // input type="checkbox" pour les cases à cocher
+        // label -> Ce que l'utilisateur vera à l'écean pour l'option
         $result .= '
         <div>
             <input type="checkbox" id="' . $key . '" name="' . $key . '"' . $checked . '>
@@ -28,6 +33,7 @@ function genererCheckbox($elements)
         </div>";
     }
 
+    // Fin de la balise fieldset
     $result .= "
     </fieldset>";
 

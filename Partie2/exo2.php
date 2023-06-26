@@ -11,10 +11,13 @@ Vous devrez appeler la fonction comme suit: afficherTableHTML($capitales);</p>
 
 $capitales= array ("France"=>"Paris","Allemagne"=>"Berlin","USA"=>"Washington","Italie"=>"Rome");
 
+// Affiche le tableau passé en paramètre en un tableau HTML
 function afficherTableHTML($capitales)
 {
+    // Trie le tableau par ordre alphabétique des clés du tableau (ici le payis)
     asort($capitales);
 
+    // Header du tableau
     $result = '
         <table>
             <thead>
@@ -25,11 +28,13 @@ function afficherTableHTML($capitales)
         <tbody>
     '; 
 
+    // Parcours le tableau passé en index et génère une ligne par index
     foreach ($capitales as $key => $value)
     {
         $result .=  "<tr><td> " . strtoupper($key) . "</td><td> $value </td></tr>";
     }
 
+    // Fin du code HTML du tableau
     $result .= "
             </tbody>
         </table>

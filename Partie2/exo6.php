@@ -8,15 +8,19 @@
 
 $elements = array("Monsieur","Madame","Mademoiselle");
 
+// Crée une liste déroulante à partir des éléments du tableau passé en paramères
 function alimenterListeDeroulante($elements)
 {
+    //select -> Liste déroulante
     $result = '<select name="">';
 
+    // Ajoute une option pour chaque élément du tableau
     foreach($elements as $element)
     {
         $result .= '<option value="' . $element . '">' . "$element </option>"; 
     }
 
+    // Ferme la balise select
     $result .= "</select>";
 
     return $result;

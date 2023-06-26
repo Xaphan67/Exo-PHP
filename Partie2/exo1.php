@@ -7,9 +7,11 @@ Vous devrez appeler la fonction comme suit: convertirMajRouge($texte);</p>
 
 <?php
 
+// Convertit le text en majuscules et en rouge
 function convertirMajRouge($texte)
 {
-
+    // Color: red -> Couleur rouge
+    // strtoupper -> texte en majuscules
     return '<span style="color: red">' . strtoupper($texte) . "</span>";
 }
 

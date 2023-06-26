@@ -14,6 +14,7 @@ Class Personne
     private string $_first_name;
     private DateTime $_birthdate;
 
+    //Constructeur appelé lors de l'instanciation de la classe
     function __construct($name, $first_name, string $birthdate)
     {
         $this->_name = $name;
@@ -21,6 +22,7 @@ Class Personne
         $this->_birthdate = new DateTime($birthdate);
     }
 
+    // Getters et Setters
     public function getName()
     {
         return $this->_name;
@@ -51,6 +53,7 @@ Class Personne
         $this->_birthdate = $birthdate;
     }
 
+    // Calcule l'âge de la personne
     public function calcAge()
     {
         $now = new DateTime();
@@ -58,6 +61,7 @@ Class Personne
         return $age;
     }
 
+    // Détermine comment l'objet doit réagir lorsqu'il est traité comme une chaîne de caractères. Par exemple, ce que echo $p1; affichera
     public function __toString()
     {
         return $this->_name . " " . $this->_first_name . " à " . $this->calcAge(). " ans";

@@ -6,4 +6,6 @@
 
 <?php
 
+// href -> Adresse du lien
+// target -> Comment le lien s'ouvre -> _blank = nouvel onglet
 echo '<a href="https://elan-formation.eu" target ="_blank">Vers le site Elan formation</a>';

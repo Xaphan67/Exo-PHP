@@ -10,10 +10,13 @@ Le tableau passé en argument sera le suivant: $capitales= array ("France"=>"Par
 
 $capitales= array ("France"=>"Paris","Allemagne"=>"Berlin","USA"=>"Washington","Italie"=>"Rome","Espagne"=>"Madrid");
 
+// Affiche le tableau passé en paramètre en un tableau HTML
 function afficherTableHTML($capitales)
 {
+    // Trie le tableau par ordre alphabétique des valeurs (ici les capitales)
     ksort($capitales);
 
+    // Header du tableau
     $result = '
         <table>
             <thead>
@@ -24,6 +27,7 @@ function afficherTableHTML($capitales)
         <tbody>
     '; 
 
+    // Parcours le tableau passé en index et génère une ligne par index
     foreach ($capitales as $key => $value)
     {
         $result .=  "
@@ -34,6 +38,7 @@ function afficherTableHTML($capitales)
         </tr>';
     }
 
+    // Fin du code HTML du tableau
     $result .= "
             </tbody>
         </table>
