@@ -25,7 +25,7 @@ function genererCheckbox($elements)
         <div>
             <input type="checkbox" id="' . $key . '" name="' . $key . '"' . $checked . '>
             <label for= "' . $key . '">' . $key . "</label>
-        <div>";
+        </div>";
     }
 
     $result .= "
