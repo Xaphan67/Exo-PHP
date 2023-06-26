@@ -11,14 +11,12 @@ $nomsInput = array("Nom","Prénom","Ville");
 
 function afficherInput($noms)
 {
-    $result = '<form action="" method="post">';
+    $result = "";
 
     foreach($noms as $input)
     {
         $result .= "<p>" . $input . ':  <input type="text" name="' . $input . '" /></p>';
     }
-
-    $result .= '</form>';
 
     return $result;
 }
