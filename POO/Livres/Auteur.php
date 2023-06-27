@@ -4,7 +4,7 @@ class Auteur
 {
     private string $_nom;
     private string $_prenom;
-    private $_livres = array();
+    private $_livres = array(); // Vide quand la classe est instanciée - Quand un livre est instancié, il s'ajoute automatiquement si son auteur correspond (voir __contruct classe Livre)
 
     public function __construct(string $nom, string $prenom)
     {
