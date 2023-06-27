@@ -4,7 +4,7 @@ class Auteur
 {
     private string $_nom;
     private string $_prenom;
-    private $_livres = array(); // Vide quand la classe est instanciée - Quand un livre est instancié, il s'ajoute automatiquement si son auteur correspond (voir __contruct classe Livre)
+    private $_livres = array(); // Vide quand la classe est instanciée - Quand un livre est instancié, il s'ajoute automatiquement si son auteur correspond (appel function ajouterLivre($livre) dans le constructueur de la classe Auteur)
 
     public function __construct(string $nom, string $prenom)
     {
@@ -42,19 +42,27 @@ class Auteur
         $this->_livres = $livres;
     }
 
-    // Retourne le nom et le prénom de l'auteur si l'on représente cette classe sous forme de chaîne de caractère
+    // Retourne le prénom et le nom de l'auteur si l'on représente cette classe sous forme de chaîne de caractère
     public function __toString()
     {
-        return $this->_nom . " " . $this->_prenom;
+        return $this->_prenom . " " . $this->_nom;
+    }
+
+    // Ajoute un livre à la liste des livres de l'auteur
+    public function ajouterLivre($livre)
+    {
+         $livres = $this->getLivres(); // Récupère la variable $livres de l'auteur
+         array_push($livres, $livre); // Ajoute le livre actuel à la suite des livres de l'auteur -- Autre possibilité : $livres[] = $this;
+         $this->setLivres($livres); // Enregitre la nouvelle valeur de la variable
     }
 
     // Affiche la bibliographie d'un auteur donné parmi une liste de livres
-    function afficherBibliographie()
+    public function afficherBibliographie()
     {
         $result = "";
 
         //Affiche Nom et prénom de l'auteur
-        $result .= "<h1>Livres de " . $this->getPrenom() . " " . $this->getNom() . "</h1></br>";
+        $result .= "<h1>Livres de " . $this . "</h1></br>";
 
         // Parcours les livres
         foreach ($this->getLivres() as $livre)

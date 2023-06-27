@@ -18,10 +18,7 @@ class Livre
         $this->_prix = $prix;
         $this->_auteur = $auteur;
 
-        // Ajoute le livre à l'auteur qui lui correspond
-        $livres = $this->_auteur->getLivres(); // Récupère la variable $livres de l'auteur
-        array_push($livres, $this); // Ajoute le livre actuel à la suite des livres de l'auteur -- Autre possibilité : $livres[] = $this;
-        $this->_auteur->setLivres($livres); // Enregitre la nouvelle valeur de la variable
+        $this->_auteur->ajouterLivre($this);
     }
 
     public function getTitre()
