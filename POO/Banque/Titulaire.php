@@ -4,59 +4,70 @@ class Titulaire
 {
     private string $_nom;
     private string $_prenom;
-    private DateTime $dateNaissance;
-    private Titulaire $_titulaire;
+    private DateTime $_dateNaissance;
+    private string $_ville;
+    private $_comptes = array();
 
-    public function __construct(string $libelle, int $solde, string $devise, Titulaire $titulaire)
+    public function __construct(string $nom, string $prenom, string $dateNaissance, string $ville)
     {
-        $this->$_libelle = $libelle;
-        $this->$_solde = $solde;
-        $this->$_devise = $devise;
-        $this->$_titulaire = $titulaire;
+        $this->_nom = $nom;
+        $this->_prenom = $prenom;
+        $this->_dateNaissance = new DateTime($dateNaissance);
+        $this->_ville = $ville;
     }
 
-    public getLibelle()
+    public function getNom()
     {
-        return $this->_libelle;
+        return $this->_nom;
     }
 
-    public setLibelle($libelle)
+    public function setNom($nom)
     {
-        $this->_libelle = =$libelle;
+        $this->_nom = $nom;
     }
 
-    public getSolde()
+    public function getPrenom()
     {
-        return $this->_solde;
+        return $this->_prenom;
     }
 
-    public setSolde($solde)
+    public function setPrenom($prenom)
     {
-        $this->_solde = =$solde;
+        $this->_prenom = $prenom;
     }
 
-    public getDevise()
+    public function getDateNaissance()
     {
-        return $this->_devise;
+        return $this->_dateNaissance;
     }
 
-    public setDevise($devise)
+    public function setDateNaissance($dateNaissance)
     {
-        $this->_devise = =$devise;
+        $this->_dateNaissance = $dateNaissance;
     }
 
-    public getTitulaire()
+    public function getVille()
     {
-        return $this->_titulaire;
+        return $this->_ville;
     }
 
-    public setTitulaire($titulaire)
+    public function setVille($ville)
     {
-        $this->_titulaire = =$titulaire;
+        $this->_ville = $ville;
     }
 
     public function __toString()
     {
-        return $this->getLibelle() . " de " . $this->getTitulaire()->getNom() . " " . $this->getTitulaire()->getPrenom() . " - Solde : " . $this->getSolde() . " " . $this->getDevise();
+        return $this->getNom() . "  " . $this->getprenom();
+    }
+
+    // Affiche les informations du titulaire
+    public function afficherInformations()
+    {
+        $now = new DateTime();
+        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+        return "<h1>" . $this . "</h1>
+        Né le " . ucfirst($formatter->format($this->_dateNaissance));
+        
     }
 }
