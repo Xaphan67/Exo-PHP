@@ -7,16 +7,21 @@ class Livre
     private string $_titre;
     private int $_nbPages;
     private int $_parution;
-    private int $_prix;
+    private float $_prix;
     private Auteur $_auteur;
 
-    public function __construct(string $titre, int $nbPages, int $parution, int $prix, Auteur $auteur)
+    public function __construct(string $titre, int $nbPages, int $parution, float $prix, Auteur $auteur)
     {
         $this->_titre = $titre;
         $this->_nbPages = $nbPages;
         $this->_parution = $parution;
         $this->_prix = $prix;
         $this->_auteur = $auteur;
+
+        // Ajoute le livre à l'auteur qui lui correspond
+        $livres = $this->_auteur->getLivres(); // Récupère la variable $livres de l'auteur
+        array_push($livres, $this); // Ajoute le livre actuel à la suite des livres de l'auteur -- Autre possibilité : $livres[] = $this;
+        $this->_auteur->setLivres($livres); // Enregitre la nouvelle valeur de la variable
     }
 
     public function getTitre()
