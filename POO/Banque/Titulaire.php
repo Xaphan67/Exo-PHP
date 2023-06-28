@@ -61,13 +61,30 @@ class Titulaire
         return $this->getNom() . "  " . $this->getprenom();
     }
 
+    // Ajoute un compte au titluaire
+    public function ajouterCompte($compte)
+    {
+        array_push($this->_comptes, $compte);
+    }
+
     // Affiche les informations du titulaire
     public function afficherInformations()
     {
-        $now = new DateTime();
-        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-        return "<h1>" . $this . "</h1>
-        Né le " . ucfirst($formatter->format($this->_dateNaissance));
-        
+        $now = new DateTime(); // Date actuelle
+        $age = $now->diff($this->_dateNaissance); // Différence entre maintenant et la date de naissance du titulaire
+        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE); // Formate la date en français
+
+        // Affiche les informations de base du titulaire
+        $result = "<h1>" . $this . "</h1>
+        Né le " . $formatter->format($this->_dateNaissance) . " (" . $age->y . " ans)</br>
+        Comptes :</br>";
+
+        // Affiche les informations de chacun de ses comptes
+        foreach ($this->_comptes as $compte)
+        {
+            $result .= "$compte </br>";
+        }
+
+        return $result;
     }
 }
