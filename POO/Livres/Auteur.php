@@ -51,9 +51,7 @@ class Auteur
     // Ajoute un livre à la liste des livres de l'auteur
     public function ajouterLivre($livre)
     {
-         $livres = $this->getLivres(); // Récupère la variable $livres de l'auteur
-         array_push($livres, $livre); // Ajoute le livre actuel à la suite des livres de l'auteur -- Autre possibilité : $livres[] = $this;
-         $this->setLivres($livres); // Enregitre la nouvelle valeur de la variable
+        array_push($this->_livres, $livre); // Ajoute le livre actuel à la suite des livres de l'auteur -- Autre possibilité : $this->_livres[] = $livre;
     }
 
     // Affiche la bibliographie d'un auteur donné parmi une liste de livres
@@ -62,7 +60,7 @@ class Auteur
         $result = "";
 
         //Affiche Nom et prénom de l'auteur
-        $result .= "<h1>Livres de " . $this . "</h1></br>";
+        $result .= "<h1>Livres de $this </h1>";
 
         // Parcours les livres
         foreach ($this->getLivres() as $livre)
